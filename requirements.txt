@@ -1,0 +1,4 @@
+# This file contains all Python packages required to run the program
+flask
+flask-login
+sqlalchemy
