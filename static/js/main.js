@@ -2,7 +2,6 @@
 
 // Opens CSUF calendar in new tab
 function contactUs() {
-    window.open("https://calendar.fullerton.edu/", "_blank");
 }
 
 // Placeholder for posting event
