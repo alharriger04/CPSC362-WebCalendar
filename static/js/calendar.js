@@ -5,3 +5,6 @@ rendering the grid, changing month/week, and clicking days to open their modal *
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Calendar initialized");
 });
+
+// store today's date for calendar highlighting
+const today = new Date();
