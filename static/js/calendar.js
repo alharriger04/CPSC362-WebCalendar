@@ -32,3 +32,11 @@ function getTodayDate() {
 function isToday(date) {
     return date === getTodayDate();
 }
+
+
+
+// log current calendar information
+function logCalendarInfo() {
+    console.log("Month:", getCurrentMonth());
+    console.log("Year:", getCurrentYear());
+}
