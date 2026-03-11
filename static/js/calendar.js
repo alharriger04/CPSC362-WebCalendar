@@ -40,3 +40,7 @@ function logCalendarInfo() {
     console.log("Month:", getCurrentMonth());
     console.log("Year:", getCurrentYear());
 }
+
+
+// run log when calendar loads
+logCalendarInfo();
