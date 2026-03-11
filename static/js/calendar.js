@@ -19,3 +19,10 @@ function getCurrentMonth() {
 function getCurrentYear() {
     return today.getFullYear();
 }
+
+
+
+// helper function to get today's date
+function getTodayDate() {
+    return today.getDate();
+}
