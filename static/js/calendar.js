@@ -14,3 +14,8 @@ const today = new Date();
 function getCurrentMonth() {
     return today.getMonth();
 }
+
+// helper function to get current year
+function getCurrentYear() {
+    return today.getFullYear();
+}
