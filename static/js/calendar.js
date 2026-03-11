@@ -8,3 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // store today's date for calendar highlighting
 const today = new Date();
+
+
+// helper function to get current month
+function getCurrentMonth() {
+    return today.getMonth();
+}
