@@ -26,3 +26,9 @@ function getCurrentYear() {
 function getTodayDate() {
     return today.getDate();
 }
+
+
+// check if a given date is today
+function isToday(date) {
+    return date === getTodayDate();
+}
