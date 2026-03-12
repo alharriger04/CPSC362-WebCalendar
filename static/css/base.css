@@ -1,33 +1,166 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Frontline</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>HHH Web Calendar</h1>
-    <p> HHH Web Calendar: letting you know what's happening on campus:) </p>
-  </header>
+:root {
+    --bg: #f2f6ff;
+    --surface: #ffffff;
+    --text: #122235;
+    --muted: #4f6072;
+    --primary: #0d6efd;
+    --primary-dark: #0a56c0;
+    --border: #dbe4f0;
+    --shadow: 0 14px 30px rgba(15, 31, 54, 0.08);
+}
 
-  <section>
-    <h2>About Us</h2>
-    <p> Created by : Andrew Harriger, Chirstopher Hernandez, and Raymond Hernandez.</p>
-    <p> Created for students by students. </p>
-  </section>
+* {
+    box-sizing: border-box;
+}
 
-  // section for viewing events
-  <section>
-    <h2>going to an event?</h2>
-    <button onclick="contactUs()">Click here for CSUF's calendar:</button>
-  </section>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at top left, #e8f0ff 0%, transparent 45%),
+        radial-gradient(circle at bottom right, #dce8ff 0%, transparent 40%),
+        var(--bg);
+    color: var(--text);
+}
 
-  // section for posting events
-  <section> 
-    <h3>Posting an event?</h3>
-    <button onclick="postEvent()">Click here to post an event:</button>
-  </section>
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.site-header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.site-nav {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--muted);
+}
+
+.page-content {
+    width: min(1100px, 92%);
+    margin: 38px auto 48px;
+}
+
+.hero {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: clamp(28px, 4vw, 54px);
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.hero h1 {
+    margin: 12px 0;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    max-width: 18ch;
+}
+
+.hero-copy {
+    margin: 0;
+    color: var(--muted);
+    max-width: 56ch;
+}
+
+.hero-actions {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 11px 18px;
+    background: var(--primary);
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-small {
+    padding: 7px 14px;
+}
+
+.feature-grid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.feature-card,
+.content-panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+.feature-card h2,
+.content-panel h1 {
+    margin-top: 0;
+}
+
+.feature-card p,
+.content-panel p {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
+@media (max-width: 760px) {
+    .site-nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 0 14px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home | HHH Web Calendar{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">Planning Made Simple</p>
+    <h1>Stay on top of your schedule.</h1>
+    <p class="hero-copy">
+        HHH Web Calendar helps users organize their week with an intuitive interface and features.
+    </p>
+    <div class="hero-actions">
+        <a class="btn" href="{{ url_for('login') }}">Get Started</a>
+        <a class="btn btn-secondary" href="{{ url_for('calendar') }}">Explore Calendar</a>
+    </div>
+</section>
+
+<section class="feature-grid">
+    <article class="feature-card">
+        <h2>Create and Manage Events</h2>
+        <p>Add events in seconds, update details, and remove outdated items.</p>
+    </article>
+    <article class="feature-card">
+        <h2>View by Day, Week, or Month</h2>
+        <p>Switch views quickly to match your schedule and planning style.</p>
+    </article>
+    <article class="feature-card">
+        <h2>Built for everyday life</h2>
+        <p>Track meetings, appointments, and personal events in a single dashboard.</p>
+    </article>
+</section>
+{% endblock %}
