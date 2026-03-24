@@ -1,8 +1,10 @@
+from routes.events import events_bp
 from flask import Flask, render_template
 
 
 app = Flask(__name__)
 
+app.register_blueprint(events_bp, url_prefix="/events")
 
 @app.route("/")
 def home():
