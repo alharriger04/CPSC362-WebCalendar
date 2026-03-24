@@ -49,3 +49,28 @@ def create_event():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+
+@events_bp.route("/user/<int:user_id>", methods=["GET"])
+def get_user_events(user_id):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        query = """
+            SELECT id, user_id, title, description, location, start_datetime, end_datetime
+            FROM events
+            WHERE user_id = %s
+            ORDER BY start_datetime
+        """
+        cursor.execute(query, (user_id,))
+        events = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify(events), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
