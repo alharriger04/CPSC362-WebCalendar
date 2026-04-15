@@ -1,1 +1,66 @@
 /* Formatting for login, registration, and account pages */
+
+.auth-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.8fr) minmax(320px, 1.2fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.auth-copy,
+.auth-form {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.auth-copy h1,
+.auth-form h2 {
+    margin-top: 0;
+}
+
+.auth-copy p {
+    color: var(--muted);
+}
+
+.auth-forms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form label {
+    font-weight: 600;
+}
+
+.auth-form input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 12px;
+    font: inherit;
+}
+
+.auth-form input:focus {
+    outline: 2px solid rgba(13, 110, 253, 0.18);
+    border-color: var(--primary);
+}
+
+.auth-form button {
+    margin-top: 8px;
+}
+
+@media (max-width: 850px) {
+    .auth-layout,
+    .auth-forms {
+        grid-template-columns: 1fr;
+    }
+}
