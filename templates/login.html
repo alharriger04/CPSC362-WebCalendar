@@ -2,9 +2,86 @@
 
 {% block title %}Login | HHH Web Calendar{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="content-panel">
-    <h1>Login</h1>
-    <p>Authentication UI will be added here.</p>
+<section class="auth-layout">
+    <div class="auth-copy">
+        <p class="eyebrow">Welcome Back</p>
+        <h1>Access your calendar.</h1>
+        <p>Log in to view your schedule, manage events, and keep your plans organized.</p>
+    </div>
+
+    <div class="auth-forms">
+        <form class="auth-form" method="POST" action="{{ url_for('auth.login') }}">
+            <h2>Login</h2>
+
+            <label for="username_or_email">Username or Email</label>
+            <input
+                id="username_or_email"
+                name="username_or_email"
+                type="text"
+                autocomplete="username"
+                required
+            >
+
+            <label for="login_password">Password</label>
+            <input
+                id="login_password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button class="btn" type="submit">Login</button>
+        </form>
+
+        <form class="auth-form" method="POST" action="{{ url_for('auth.register') }}">
+            <h2>Create Account</h2>
+
+            <label for="username">Username</label>
+            <input
+                id="username"
+                name="username"
+                type="text"
+                autocomplete="username"
+                required
+            >
+
+            <label for="email">Email</label>
+            <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+            >
+
+            <label for="register_password">Password</label>
+            <input
+                id="register_password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="6"
+                required
+            >
+
+            <label for="confirm_password">Confirm Password</label>
+            <input
+                id="confirm_password"
+                name="confirm_password"
+                type="password"
+                autocomplete="new-password"
+                minlength="6"
+                required
+            >
+
+            <button class="btn btn-secondary" type="submit">Register</button>
+        </form>
+    </div>
 </section>
 {% endblock %}
