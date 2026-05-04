@@ -2,9 +2,103 @@
 
 {% block title %}Dashboard | HHH Web Calendar{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="content-panel">
-    <h1>Dashboard</h1>
-    <p>User dashboard content will be added here.</p>
+<section class="dashboard-grid">
+    <article class="content-panel full-calendar-card">
+        <h1>Calendar</h1>
+        <div class="full-calendar-header">
+            <button id="prevMonthBtn" class="btn btn-small btn-secondary" type="button">Prev</button>
+            <h2 id="miniCalendarTitle">Month</h2>
+            <button id="nextMonthBtn" class="btn btn-small btn-secondary" type="button">Next</button>
+        </div>
+
+        <div class="full-calendar-weekdays">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+
+        <div id="miniCalendarGrid" class="full-calendar-grid"></div>
+        <div class="selected-day-summary">
+            <h3 id="selectedDateLabel">Selected Day</h3>
+            <ul id="selectedDateEvents" class="selected-day-events"></ul>
+        </div>
+    </article>
+
+    <article class="content-panel form-card">
+        <h2 id="formTitle">Create Event</h2>
+        <form id="eventForm" class="event-form">
+            <input id="eventId" type="hidden">
+
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="3"></textarea>
+
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text">
+
+            <label for="startDate">Start Date</label>
+            <input
+                id="startDate"
+                name="startDate"
+                type="date"
+                required
+            >
+
+            <label for="startTime">Start Time (HH:MM)</label>
+            <input
+                id="startTime"
+                name="startTime"
+                type="text"
+                placeholder="14:30"
+                required
+            >
+
+            <label for="endDate">End Date</label>
+            <input
+                id="endDate"
+                name="endDate"
+                type="date"
+                required
+            >
+
+            <label for="endTime">End Time (HH:MM)</label>
+            <input
+                id="endTime"
+                name="endTime"
+                type="text"
+                placeholder="15:30"
+                required
+            >
+
+            <div class="event-form-actions">
+                <button class="btn" type="submit">Save Event</button>
+                <button id="cancelEditBtn" class="btn btn-secondary" type="button">Cancel Edit</button>
+                <button id="deleteEventBtn" class="btn btn-danger" type="button">Delete Event</button>
+            </div>
+        </form>
+    </article>
+
+    <article class="content-panel upcoming-card">
+        <h1>Upcoming Events</h1>
+        <p class="dashboard-subtitle">Your next few scheduled items.</p>
+        <ul id="upcomingEventsList" class="upcoming-list"></ul>
+    </article>
+
 </section>
+
+<script>
+    window.currentUserId = {{ session.get("user_id")|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 {% endblock %}

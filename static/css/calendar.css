@@ -1,2 +1,95 @@
-/* Formatting for calendar grid, individual day cells, 
-event badges, time slots */
+.calendar-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.calendar-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.calendar-toolbar select,
+.calendar-toolbar input[type="date"],
+.event-form input,
+.event-form textarea {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font: inherit;
+}
+
+.event-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.event-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    background-color: #f8fbff;
+}
+
+.event-item h3 {
+    margin: 0 0 6px;
+}
+
+.event-item p {
+    margin: 4px 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.event-empty {
+    color: var(--muted);
+}
+
+.event-error {
+    color: #9f2424;
+}
+
+.event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-danger {
+    background: #c53f3f;
+}
+
+.btn-danger:hover {
+    background: #a93131;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-form label {
+    font-weight: 600;
+}
+
+.event-form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+@media (max-width: 930px) {
+    .calendar-layout {
+        grid-template-columns: 1fr;
+    }
+}

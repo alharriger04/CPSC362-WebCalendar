@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, url_for
 from routes.auth import auth_bp, login_required
 from routes.events import events_bp
 
@@ -26,7 +26,7 @@ def dashboard():
 @app.route("/calendar")
 @login_required
 def calendar():
-    return render_template("calendar.html")
+    return redirect(url_for("dashboard"))
 
 
 if __name__ == "__main__":

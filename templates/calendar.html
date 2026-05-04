@@ -2,9 +2,60 @@
 
 {% block title %}Calendar | HHH Web Calendar{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="content-panel">
-    <h1>Calendar</h1>
-    <p>Interactive calendar UI will be added here.</p>
+<section class="calendar-layout">
+    <article class="content-panel">
+        <h1>My Events</h1>
+        <div class="calendar-toolbar">
+            <label for="viewSelect">View</label>
+            <select id="viewSelect">
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month" selected>Month</option>
+            </select>
+
+            <label for="referenceDate">Date</label>
+            <input id="referenceDate" type="date">
+            <button id="loadEventsBtn" class="btn btn-small" type="button">Load</button>
+        </div>
+
+        <ul id="eventList" class="event-list"></ul>
+    </article>
+
+    <article class="content-panel">
+        <h2 id="formTitle">Create Event</h2>
+        <form id="eventForm" class="event-form">
+            <input id="eventId" type="hidden">
+
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="3"></textarea>
+
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text">
+
+            <label for="startDatetime">Start</label>
+            <input id="startDatetime" name="startDatetime" type="datetime-local" required>
+
+            <label for="endDatetime">End</label>
+            <input id="endDatetime" name="endDatetime" type="datetime-local" required>
+
+            <div class="event-form-actions">
+                <button id="saveBtn" class="btn" type="submit">Save Event</button>
+                <button id="cancelEditBtn" class="btn btn-secondary" type="button">Cancel Edit</button>
+            </div>
+        </form>
+    </article>
 </section>
+
+<script>
+    window.currentUserId = {{ session.get("user_id")|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/events.js') }}"></script>
 {% endblock %}
